@@ -99,6 +99,7 @@ module RestClient
       Request.execute(options.merge(
               :method => :delete,
               :url => url,
+              :payload => payload,
               :headers => headers,
               :log => log), &(block || @block))
     end
