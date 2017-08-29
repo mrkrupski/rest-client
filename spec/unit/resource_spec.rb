@@ -32,8 +32,8 @@ describe RestClient::Resource do
     end
 
     it "DELETE" do
-      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass', :log => nil)
-      @resource.delete
+      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :payload => 'abc', :headers => {'X-Something' => '1'}, :user => 'jane', :password => 'mypass', :log => nil)
+      @resource.delete 'abc'
     end
 
     it "overrides resource headers" do

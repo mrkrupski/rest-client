@@ -37,7 +37,7 @@ require File.dirname(__FILE__) + '/restclient/windows'
 #   RestClient.put 'http://example.com/resource.pdf', File.read('my.pdf'), :content_type => 'application/pdf'
 #
 #   # DELETE
-#   RestClient.delete 'http://example.com/resource'
+#   RestClient.delete 'http://example.com/resource', :param1 => 'one'
 #
 #   # retreive the response http code and headers
 #   res = RestClient.get 'http://example.com/some.jpg'
@@ -78,8 +78,8 @@ module RestClient
     Request.execute(:method => :put, :url => url, :payload => payload, :headers => headers, &block)
   end
 
-  def self.delete(url, headers={}, &block)
-    Request.execute(:method => :delete, :url => url, :headers => headers, &block)
+  def self.delete(url, payload, headers={}, &block)
+    Request.execute(:method => :delete, :url => url, :payload => payload, :headers => headers, &block)
   end
 
   def self.head(url, headers={}, &block)

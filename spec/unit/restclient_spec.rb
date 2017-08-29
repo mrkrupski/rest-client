@@ -23,8 +23,8 @@ describe RestClient do
     end
 
     it "DELETE" do
-      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :headers => {})
-      RestClient.delete('http://some/resource')
+      expect(RestClient::Request).to receive(:execute).with(:method => :delete, :url => 'http://some/resource', :payload => 'payload', :headers => {})
+      RestClient.delete('http://some/resource', 'payload')
     end
 
     it "HEAD" do
